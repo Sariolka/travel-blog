@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Europa';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('europa-bold-webfont.woff2') format('woff2'),
+    url('europa-bold-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Europa';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('europa-regular-webfont.woff2') format('woff2'),
+    url('europa-regular-webfont.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'EuropaNuova';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('europanuovabold.woff2') format('woff2'),
+    url('europanuovabold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'EuropaNuova';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url('Europa Nuova Regular.woff2') format('woff2'),
+    url('Europa Nuova Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src:
+    url('Roboto-Light.woff2') format('woff2'),
+    url('Roboto-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Sansita';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url('Sansita Bold.woff2') format('woff2'),
+    url('Sansita Bold.woff') format('woff');
+}
