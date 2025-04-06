@@ -79,7 +79,15 @@ const cards: ICardDestination[] = [
   align-items: center;
   flex-wrap: wrap;
   list-style: none;
+  justify-content: flex-start;
   gap: 40px;
   padding-left: 0;
+
+}
+
+.destinations__item {
+  width: max-content;
+  flex: 1 1 auto;
+  min-width: 320px;
 }
 </style>

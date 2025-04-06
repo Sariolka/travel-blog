@@ -52,10 +52,15 @@ const cards: IBigCardProps[] = [
 
 <style scoped>
 .blog {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
   gap: 40px;
+
+  @media screen and (max-width: 1599px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 </style>

@@ -25,6 +25,16 @@ const props = defineProps<{
   line-height: 24px;
   color: #121416;
   text-decoration: none;
+  @media screen and (max-width: 1279px) {
+    font-size: 1.6vw;
+    width: 250px;
+    height: 45px;
+  }
+  @media screen and (max-width: 799px) {
+    font-size: 2vw;
+    width: 200px;
+    height: 35px;
+  }
 }
 
 .link_type-big {
@@ -33,5 +43,15 @@ const props = defineProps<{
   font-weight: 400;
   font-family: 'EuropaNuova', 'Arial', sans-serif;
   letter-spacing: 0.1px;
+  @media screen and (max-width: 1279px) {
+    font-size: 1.6vw;
+    width: 250px;
+    height: 45px;
+  }
+  @media screen and (max-width: 799px) {
+    font-size: clamp(14px,2vw,48px);
+    width: 200px;
+    height: 45px;
+  }
 }
 </style>

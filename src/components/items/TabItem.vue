@@ -1,8 +1,9 @@
 <script setup lang="ts">
-const props = defineProps<{
+export interface ITabItem {
   status: 'default' | 'active'
   text: string
-}>()
+}
+const props = defineProps<ITabItem>()
 
 const emit = defineEmits<{
   (e: 'update:status', status: string): void
@@ -28,21 +29,30 @@ const handleSetActive = () => {
 <style scoped>
 .tab-item {
   display: flex;
-  padding-bottom: 27px;
-}
-
-.tab-item:hover {
-  color: red;
+  padding-bottom: 7px;
 }
 
 .tab-item_active {
-  border-bottom: 3px solid red;
+  border-bottom: 2px solid #121416;
 }
 
 .tab-item__text {
   transition: color 0.3s ease-in-out;
-  color: #000;
+  color: #121416;
   cursor: pointer;
   white-space: nowrap;
+  font-family: 'Europa', 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 0.5px;
+
+  @media screen and (max-width: 1279px) {
+    font-size: clamp(14px, 1.8vw,20px);
+  }
 }
+
+.tab-item__text:hover {
+   color: darkslategray;
+ }
 </style>

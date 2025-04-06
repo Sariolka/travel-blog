@@ -36,11 +36,13 @@ const props = defineProps<{
       <img :src="card.author_icon" :alt="card.author" class="blog-card__avatar" />
       <p class="blog-card__author">{{ card.author }}</p>
       <hr class="blog-card__line" />
-      <time class="blog-card__time">{{ card.date }}</time>
-      <div class="blog-card__dot"></div>
-      <button class="blog-card__share">
-        <span class="blog-card__icon-share"></span> {{ card.count }}K shares
-      </button>
+      <div class="blog-card__right-side">
+        <time class="blog-card__time">{{ card.date }}</time>
+        <div class="blog-card__dot"></div>
+        <button class="blog-card__share">
+          <span class="blog-card__icon-share"></span> {{ card.count }}K shares
+        </button>
+      </div>
     </div>
     <p class="blog-card__description">{{ card.text }}</p>
     <router-link to="/article" class="blog-card__link">View Post</router-link>
@@ -51,15 +53,15 @@ const props = defineProps<{
 .blog-card {
   display: flex;
   flex-direction: column;
-  width: 560px;
-  height: 788px;
   font-family: 'Europa', 'Arial', sans-serif;
+  width: 100%;
+  min-height: 788px;
+  height: 100%;
 }
 
 .blog-card__image-container {
   position: relative;
   width: 100%;
-  height: 420px;
   margin-bottom: 36px;
 }
 
@@ -70,6 +72,7 @@ const props = defineProps<{
   object-fit: cover;
   object-position: center;
   width: 100%;
+  vertical-align: bottom;
 }
 
 .blog-card__image-container::before {
@@ -81,23 +84,31 @@ const props = defineProps<{
   height: 100%;
   background-color: rgba(0, 0, 0, 0.25);
   z-index: 1;
+  vertical-align: bottom;
 }
 
 .blog-card__image-icons {
   position: absolute;
   z-index: 2;
   top: 30px;
-  left: 30px;
+  left: 0;
+  padding-left: 30px;
+  padding-right: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 500px;
+  width: 100%;
 }
 
 .blog-card__tags {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.blog-card__right-side {
+  display: flex;
+  align-items: center;
 }
 
 .blog-card__title {
@@ -113,6 +124,12 @@ const props = defineProps<{
   align-items: center;
   width: 100%;
   margin-bottom: 25px;
+  @media screen and (max-width: 1899px) {
+    flex-direction: column;
+  }
+  @media screen and (max-width: 1599px) {
+    flex-direction: row;
+  }
 }
 
 .blog-card__author {
@@ -141,13 +158,6 @@ const props = defineProps<{
   margin-right: 3px;
 }
 
-.blog-card__description {
-  font-size: 1.125rem;
-  font-weight: 400;
-  line-height: 150%;
-  color: #6c757d;
-}
-
 .blog-card__share {
   display: flex;
   align-items: center;
@@ -167,6 +177,9 @@ const props = defineProps<{
   height: 1px;
   color: rgba(108, 117, 125, 0.4);
   margin-right: 9px;
+  @media screen and (max-width: 1899px) {
+    display: none;
+  }
 }
 
 .blog-card__dot {
@@ -200,5 +213,7 @@ const props = defineProps<{
   line-height: 40px;
   color: #121416;
   text-underline-offset: 10px;
+  width: min-content;
+  white-space: nowrap;
 }
 </style>

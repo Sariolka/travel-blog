@@ -30,6 +30,8 @@ import LinkItem from '@/components/items/LinkItem.vue'
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .blog-post::before {
@@ -56,6 +58,10 @@ import LinkItem from '@/components/items/LinkItem.vue'
   text-align: center;
   color: #fff;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 1279px) {
+    font-size: clamp(20px,4vw,48px);
+  }
 }
 
 .blog-post__description {
@@ -70,7 +76,13 @@ import LinkItem from '@/components/items/LinkItem.vue'
   color: #e5e5e5;
   letter-spacing: 0.2px;
   margin-bottom: 30px;
-
+  @media screen and (max-width: 1279px) {
+    font-size: 1.7vw;
+  }
+  @media screen and (max-width: 799px) {
+    font-size: clamp(14px,2vw,48px);
+    max-width: 70%;
+  }
 }
 
 .blog-post__tag {
@@ -86,6 +98,9 @@ import LinkItem from '@/components/items/LinkItem.vue'
   max-width: 987px;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 1279px) {
+   max-width: 80%;
+  }
 }
 
 .blog-post__link {
