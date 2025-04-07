@@ -2,13 +2,13 @@
 
 <template>
   <footer class="footer">
-   <span class="footer__text">Designed & Developed by&ensp; XP DESIGN</span>
+    <span class="footer__text">Designed & Developed by&ensp; XP DESIGN</span>
   </footer>
 </template>
 
 <style scoped>
 .footer {
-  background-image: url("@/assets/images/image 31(1).png");
+  background-image: url('@/assets/images/image 31(1).png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

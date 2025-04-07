@@ -1,25 +1,25 @@
 <script setup lang="ts">
-
-export interface IMediumCardProps {
-  image: string
-  title: string
-  text: string
-  date: string
-  link: string
-}
+import type { IMediumCardProps } from '@/types/types.ts'
+import { useLanguageStore } from '@/stores/store.ts'
+import { computed } from 'vue'
 
 const props = defineProps<{
   card: IMediumCardProps
 }>()
+
+const store = useLanguageStore()
+const currentLang = computed(() => store.getLang)
 </script>
 
 <template>
   <div class="medium-card">
-      <img :src="card.image" :alt="card.title" class="medium-card__image" />
+    <img :src="card.image" :alt="card.title" class="medium-card__image" />
     <time class="medium-card__time">{{ card.date }}</time>
     <h3 class="medium-card__title">{{ card.title }}</h3>
     <p class="medium-card__description">{{ card.text }}</p>
-    <router-link to="/article" class="medium-card__link">View Post</router-link>
+    <router-link to="/article" class="medium-card__link">{{
+      currentLang === 'en' ? 'View Post' : 'Ver publicación'
+    }}</router-link>
   </div>
 </template>
 
@@ -53,7 +53,7 @@ const props = defineProps<{
   font-weight: 400;
   line-height: 21px;
   letter-spacing: 0.1px;
-  color: #6E6E6E;
+  color: #6e6e6e;
   font-family: 'Poppins', 'Arial', sans-serif;
   margin-bottom: 16px;
 }
@@ -73,7 +73,7 @@ const props = defineProps<{
   font-size: 12px;
   font-weight: 500;
   line-height: 100%;
-  color: #6E6E6E;
+  color: #6e6e6e;
   font-family: 'Poppins', 'Arial', sans-serif;
   margin-bottom: 19px;
 }

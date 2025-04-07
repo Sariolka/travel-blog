@@ -1,8 +1,6 @@
 <script setup lang="ts">
-export interface ITabItem {
-  status: 'default' | 'active'
-  text: string
-}
+import type { ITabItem } from '@/types/types.ts'
+
 const props = defineProps<ITabItem>()
 
 const emit = defineEmits<{
@@ -48,11 +46,11 @@ const handleSetActive = () => {
   letter-spacing: 0.5px;
 
   @media screen and (max-width: 1279px) {
-    font-size: clamp(14px, 1.8vw,20px);
+    font-size: clamp(14px, 1.8vw, 20px);
   }
 }
 
 .tab-item__text:hover {
-   color: darkslategray;
- }
+  color: darkslategray;
+}
 </style>

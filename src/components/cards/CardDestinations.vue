@@ -1,9 +1,6 @@
 <script setup lang="ts">
-export interface ICardDestination {
-  title: string
-  image: string
-  link: string
-}
+import type { ICardDestination } from '@/types/types.ts'
+
 const props = defineProps<{
   card: ICardDestination
 }>()

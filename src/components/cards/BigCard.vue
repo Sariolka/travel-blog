@@ -1,23 +1,16 @@
 <script setup lang="ts">
 import TagItem from '@/components/items/TagItem.vue'
 import TagWithIconItem from '@/components/items/TagWithIconItem.vue'
-
-export interface IBigCardProps {
-  icon: 'img' | 'video'
-  image: string
-  title: string
-  text: string
-  author: string
-  author_icon: string
-  date: string
-  count: number
-  link: string
-  tags: string[]
-}
+import type { IBigCardProps } from '@/types/types.ts'
+import { useLanguageStore } from '@/stores/store.ts'
+import { computed } from 'vue'
 
 const props = defineProps<{
   card: IBigCardProps
 }>()
+
+const store = useLanguageStore()
+const currentLang = computed(() => store.getLang)
 </script>
 
 <template>
@@ -45,7 +38,9 @@ const props = defineProps<{
       </div>
     </div>
     <p class="blog-card__description">{{ card.text }}</p>
-    <router-link to="/article" class="blog-card__link">View Post</router-link>
+    <router-link to="/article" class="blog-card__link">{{
+      currentLang === 'en' ? 'View Post' : 'Ver publicación'
+    }}</router-link>
   </div>
 </template>
 

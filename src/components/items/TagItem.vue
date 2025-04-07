@@ -46,13 +46,12 @@ const props = defineProps<{
   line-height: 100%;
   color: #fff;
   white-space: nowrap;
-
 }
 
 .tag__text_type-small {
   font-size: 24px;
   @media screen and (max-width: 799px) {
-    font-size: clamp(16px,2vw,48px);
+    font-size: clamp(16px, 2vw, 48px);
   }
 }
 </style>

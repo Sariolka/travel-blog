@@ -1,20 +1,15 @@
 <script setup lang="ts">
-export interface ICard {
-  title: string
-  image: string
-  date: string
-  link: string
-  type?: 'xs'
-}
+import type { ICard } from '@/types/types.ts'
+
 const props = defineProps<ICard>()
 </script>
 
 <template>
-  <router-link :to="link" class="card" :class="{'card_type-xs': type === 'xs'}">
-    <img class="card__img" :src="image" alt="">
+  <router-link :to="link" class="card" :class="{ 'card_type-xs': type === 'xs' }">
+    <img class="card__img" :src="image" alt="" />
     <div class="card__content">
-      <h4 class="card__title">{{title}}</h4>
-      <time class="card__time" :class="{'card__time_type-xs': type === 'xs'}">{{date}}</time>
+      <h4 class="card__title">{{ title }}</h4>
+      <time class="card__time" :class="{ 'card__time_type-xs': type === 'xs' }">{{ date }}</time>
     </div>
   </router-link>
 </template>
@@ -22,7 +17,7 @@ const props = defineProps<ICard>()
 <style scoped>
 .card {
   display: grid;
-  grid-template-columns: .85fr 1fr;
+  grid-template-columns: 0.85fr 1fr;
   width: 100%;
   height: 100%;
   gap: 37px;
@@ -30,7 +25,7 @@ const props = defineProps<ICard>()
 }
 
 .card_type-xs {
-  grid-template-columns: .8fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
   gap: 20px;
 }
 

@@ -9,17 +9,16 @@ import CategoriesBlock from '@/layout/CategoriesBlock.vue'
 
 <template>
   <section class="page">
-    <HeroBlock />
+    <HeroBlock class="page__main-img" />
     <main class="page__main">
-      <BlogCardsBlock class="page__main-blog"/>
-      <BigPostBlock  class="page__main-post"/>
-      <DestinationsBlock  class="page__main-destination"/>
-      <CategoriesBlock  class="page__main-categories"/>
+      <BlogCardsBlock class="page__main-blog" />
+      <BigPostBlock class="page__main-post" />
+      <DestinationsBlock class="page__main-destination" />
+      <CategoriesBlock class="page__main-categories" />
     </main>
 
-    <FooterBlock />
+    <!--    <FooterBlock />-->
   </section>
-
 </template>
 
 <style scoped>
@@ -35,6 +34,11 @@ import CategoriesBlock from '@/layout/CategoriesBlock.vue'
   }
 }
 
+.page__main-img {
+  background-image: url('@/assets/images/Rectangle 1312.webp');
+  margin-bottom: 41px;
+}
+
 .page__main-blog {
   margin-bottom: 90px;
 }
@@ -44,7 +48,7 @@ import CategoriesBlock from '@/layout/CategoriesBlock.vue'
 }
 
 .page__main-destination {
-  margin-bottom: 197px;
+  margin-bottom: 198px;
 }
 
 .page__main-categories {
