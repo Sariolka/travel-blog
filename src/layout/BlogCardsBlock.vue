@@ -1,61 +1,61 @@
 <script setup lang="ts">
-import BigCard, { type IBigCardProps } from '@/components/cards/BigCard.vue'
-import wave from '@/assets/images/Rectangle 1317(1).webp'
-import wave2 from '@/assets/images/Rectangle 1317.webp'
-import wave3 from '@/assets/images/Rectangle 1317(2).webp'
-import avatar from '@/assets/images/Ellipse 162(1).png'
-const cards: IBigCardProps[] = [
-  {
-    icon: 'img',
-    image: wave,
-    title: 'Integer Maecenas Eget Viverra\n',
-    text: 'Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem.\n',
-    author: 'Joanna Wellick',
-    author_icon: avatar,
-    date: 'June 28, 2018',
-    count: 1,
-    link: '/',
-    tags: ['Aenean Eleifend', 'Aliquam'],
-  },
-  {
-    icon: 'video',
-    image: wave2,
-    title: 'Aenean eleifend ante maecenas\n',
-    text: 'Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem.\n',
-    author: 'Joanna Wellick',
-    author_icon: avatar,
-    date: 'June 28, 2018',
-    count: 1,
-    link: '/',
-    tags: ['Aenean Eleifend', 'Aliquam'],
-  },
-  {
-    icon: 'img',
-    image: wave3,
-    title: 'Integer Maecenas Eget Viverra\n',
-    text: 'Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem.\n',
-    author: 'Joanna Wellick',
-    author_icon: avatar,
-    date: 'June 28, 2018',
-    count: 1,
-    link: '/',
-    tags: ['Aenean Eleifend', 'Aliquam'],
-  },
-]
+import BigCard from '@/components/cards/BigCard.vue'
+import { useLanguageStore } from '@/stores/store.ts'
+import { computed } from 'vue'
+import { cardsEn, cardsEs, statistic } from '@/data/dataBlog.ts'
+import type { IBigCardProps } from '@/types/types.ts'
+import StatisticItem from '@/components/items/StatisticItem.vue'
+
+const store = useLanguageStore()
+const currentLang = computed(() => store.getLang)
+
+const cards = computed<IBigCardProps[]>(() => {
+  return currentLang.value === 'en' ? cardsEn : cardsEs
+})
+
+const data = Object.entries(statistic)
+console.log(data)
 </script>
 
 <template>
   <section class="blog">
-    <BigCard v-for="(card, index) in cards" :key="index" :card="card" />
+    <ul class="blog__statistic">
+      <StatisticItem :count="item[1]" :type="item[0]" v-for="(item, index) in data" :key="index" />
+    </ul>
+    <ul class="blog__cards">
+      <BigCard v-for="(card, index) in cards" :key="index" :card="card" class="blog__cards-item" />
+    </ul>
   </section>
 </template>
 
 <style scoped>
 .blog {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.blog__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
   gap: 40px;
+  padding-left: 0;
+  list-style: none;
+
+  @media screen and (max-width: 1599px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.blog__statistic {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: end;
+  padding-left: 0;
+  list-style: none;
+  margin-bottom: 41px;
 }
 </style>

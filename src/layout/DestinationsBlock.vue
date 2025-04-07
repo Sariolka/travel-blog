@@ -1,46 +1,29 @@
 <script setup lang="ts">
-import CardDestinations, { type ICardDestination } from '@/components/cards/CardDestinations.vue'
-import p1 from '@/assets/images/1.png'
-import p2 from '@/assets/images/2.png'
-import p3 from '@/assets/images/3.png'
-import p4 from '@/assets/images/4.png'
-import p5 from '@/assets/images/5.png'
+import CardDestinations from '@/components/cards/CardDestinations.vue'
+import type { ICardDestination } from '@/types/types.ts'
+import { computed } from 'vue'
+import { useLanguageStore } from '@/stores/store.ts'
+import { cardsDestEn, cardsDestEs } from '@/data/dataDestinations.ts'
 
-const cards: ICardDestination[] = [
-  {
-    title: 'Dominican Republic',
-    image: p1,
-    link: '/article',
-  },
-  {
-    title: 'Maecenas Tincidunt',
-    image: p2,
-    link: '/article',
-  },
-  {
-    title: 'Dominican Republic',
-    image: p3,
-    link: '/article',
-  },
-  {
-    title: 'Dominican Republic',
-    image: p4,
-    link: '/article',
-  },
-  {
-    title: 'Dominican Republic',
-    image: p5,
-    link: '/article',
-  },
-]
+const store = useLanguageStore()
+const currentLang = computed(() => store.getLang)
+
+const cards = computed<ICardDestination[]>(() => {
+  return currentLang.value === 'en' ? cardsDestEn : cardsDestEs
+})
 </script>
 
 <template>
   <section class="destinations">
-    <h2 class="destinations__title">Top Destinations</h2>
+    <h2 class="destinations__title">
+      {{ currentLang === 'en' ? 'Top Destinations' : 'Destinos principales' }}
+    </h2>
     <p class="destinations__description">
-      Tick one more destination off of&nbsp;your bucket list with one of&nbsp;our most popular
-      vacations in&nbsp;2022
+      {{
+        currentLang === 'en'
+          ? 'Tick one more destination off of\u00A0your bucket list with one of\u00A0our most popular vacations in\u00A02022'
+          : 'Marca un destino más de\u00A0tu lista de\u00A0deseos con una de\u00A0nuestras vacaciones más populares en\u00A02022'
+      }}
     </p>
     <ul class="destinations__list">
       <li class="destinations__item" v-for="(card, index) in cards" :key="index">
@@ -79,7 +62,14 @@ const cards: ICardDestination[] = [
   align-items: center;
   flex-wrap: wrap;
   list-style: none;
+  justify-content: flex-start;
   gap: 40px;
   padding-left: 0;
+}
+
+.destinations__item {
+  width: max-content;
+  flex: 1 1 auto;
+  min-width: 320px;
 }
 </style>

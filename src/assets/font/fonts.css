@@ -57,3 +57,13 @@
     url('Sansita Bold.woff2') format('woff2'),
     url('Sansita Bold.woff') format('woff');
 }
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src:
+    url('Poppins-Medium.woff2') format('woff2'),
+    url('Poppins-Medium.woff') format('woff');
+}

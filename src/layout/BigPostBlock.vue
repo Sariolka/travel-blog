@@ -1,18 +1,31 @@
 <script setup lang="ts">
 import TagItem from '@/components/items/TagItem.vue'
 import LinkItem from '@/components/items/LinkItem.vue'
+import { useLanguageStore } from '@/stores/store.ts'
+import { computed } from 'vue'
+const store = useLanguageStore()
+const currentLang = computed(() => store.getLang)
 </script>
 
 <template>
   <section class="blog-post">
     <div class="blog-post__content">
-      <TagItem text="Travel" small class="blog-post__tag" />
-      <h2 class="blog-post__title">Richird Norton photorealistic rendering as&nbsp;real photos</h2>
+      <TagItem :text="currentLang === 'en' ? 'Travel' : 'Viajes'" small class="blog-post__tag" />
+      <h2 class="blog-post__title">
+        {{
+          currentLang === 'en'
+            ? 'Richird Norton photorealistic rendering as real photos'
+            : 'Renderizado fotorrealista de Richird Norton como fotos reales'
+        }}&nbsp;
+      </h2>
       <p class="blog-post__description">
-        Progressively incentivize cooperative systems through technically sound functionalities. The
-        credibly productivate seamless data.
+        {{
+          currentLang === 'en'
+            ? 'Progressively incentivize cooperative systems through technically sound functionalities. The credibly productivate seamless data.'
+            : 'Incentivar progresivamente los sistemas cooperativos a través de funcionalidades técnicamente sólidas. Productividad creíble de datos fluidos.'
+        }}
       </p>
-      <LinkItem class="blog-post__link" big/>
+      <LinkItem class="blog-post__link" big />
     </div>
   </section>
 </template>
@@ -30,6 +43,8 @@ import LinkItem from '@/components/items/LinkItem.vue'
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .blog-post::before {
@@ -56,6 +71,10 @@ import LinkItem from '@/components/items/LinkItem.vue'
   text-align: center;
   color: #fff;
   margin-bottom: 20px;
+
+  @media screen and (max-width: 1279px) {
+    font-size: clamp(20px, 4vw, 48px);
+  }
 }
 
 .blog-post__description {
@@ -70,7 +89,13 @@ import LinkItem from '@/components/items/LinkItem.vue'
   color: #e5e5e5;
   letter-spacing: 0.2px;
   margin-bottom: 30px;
-
+  @media screen and (max-width: 1279px) {
+    font-size: 1.7vw;
+  }
+  @media screen and (max-width: 799px) {
+    font-size: clamp(14px, 2vw, 48px);
+    max-width: 70%;
+  }
 }
 
 .blog-post__tag {
@@ -86,6 +111,9 @@ import LinkItem from '@/components/items/LinkItem.vue'
   max-width: 987px;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 1279px) {
+    max-width: 80%;
+  }
 }
 
 .blog-post__link {

@@ -1,9 +1,6 @@
 <script setup lang="ts">
-export interface ICardDestination {
-  title: string
-  image: string
-  link: string
-}
+import type { ICardDestination } from '@/types/types.ts'
+
 const props = defineProps<{
   card: ICardDestination
 }>()
@@ -23,9 +20,11 @@ const props = defineProps<{
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  width: 320px;
-  height: 260px;
+
+  width: 100%;
+  min-height: 260px;
   text-decoration: none;
+  flex: 1 1 auto;
 }
 
 .card-destination::before {
@@ -42,7 +41,7 @@ const props = defineProps<{
 
 .card-destination:hover .card-destination__image,
 .card-destination:hover::before {
-  transform: scale(110%);
+  transform: scale(105%);
 }
 
 .card-destination__image {
