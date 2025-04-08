@@ -129,7 +129,6 @@ console.log(props)
 
 .hero-block__title {
   text-transform: uppercase;
-  box-shadow: 4px 10px 48px 0 #0000005e;
   font-family: 'Europa', 'Arial', sans-serif;
   font-size: 64px;
   font-weight: 700;

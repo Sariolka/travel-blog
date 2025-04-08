@@ -24,7 +24,7 @@ const currentLang = computed(() => store.getLang)
         <TagWithIconItem :icon="card.icon" />
       </div>
     </div>
-    <h3 class="blog-card__title">{{ card.title }}</h3>
+    <h2 class="blog-card__title">{{ card.title }}</h2>
     <div class="blog-card__author-container">
       <img :src="card.author_icon" :alt="card.author" class="blog-card__avatar" />
       <p class="blog-card__author">{{ card.author }}</p>
