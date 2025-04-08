@@ -126,7 +126,7 @@ const breadcrumbs = computed<IBreadcrumb[]>(() => {
 
 .page__article-img {
   background-image: url('@/assets/images/Rectangle 1312(1).webp');
-  margin-bottom: 69px;
+  margin-bottom: 67px;
 }
 
 .page__article-socials {
@@ -189,13 +189,13 @@ const breadcrumbs = computed<IBreadcrumb[]>(() => {
   line-height: 100%;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin-bottom: 27px;
+  margin-bottom: 25px;
 }
 
 .page__article-list {
   padding-left: 92px;
-  padding-top: 25px;
-  margin-bottom: 55px;
+  padding-top: 26px;
+  margin-bottom: 57px;
 }
 
 .page__article-info {

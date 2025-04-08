@@ -55,7 +55,7 @@ const props = defineProps<{
   z-index: 2;
   max-width: 1050px;
   margin-top: auto;
-  margin-bottom: 60px;
+  margin-bottom: 38px;
   margin-left: 130px;
   @media screen and (max-width: 1599px) {
     max-width: 850px;
