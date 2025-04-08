@@ -3,10 +3,10 @@ import LinkItem from '@/components/items/LinkItem.vue'
 import { useLanguageStore } from '@/stores/store.ts'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import type { IBreadcrumb } from '@/types/types.ts'
 
 const props = defineProps<{
-  breadcrumbs?: string[]
-  articleTitle?: string
+  breadcrumbs?: IBreadcrumb[]
 }>()
 
 const route = useRoute()
@@ -62,9 +62,9 @@ console.log(props)
         </div>
       </div>
     </header>
-    <div v-if="breadcrumbs && breadcrumbs.length">
-      <router-link v-for="(crumb, index) in breadcrumbs" :key="index" :to="crumb.link">
-        <!--        {{ crumb.text }}-->
+    <div v-if="breadcrumbs && breadcrumbs.length" class="hero-block__breadcrumbs">
+      <router-link v-for="(crumb, index) in breadcrumbs" :key="index" :to="crumb.path" class="hero-block__breadcrumb">
+                {{ crumb.name }} <div class="hero-block__breadcrumb-icon"></div>
       </router-link>
     </div>
     <h1 class="hero-block__title" v-if="route.path === '/'">
@@ -144,6 +144,7 @@ console.log(props)
 
   @media screen and (max-width: 1350px) {
     font-size: clamp(24px, 5vw, 52px);
+    margin-left: 0;
   }
 }
 
@@ -171,7 +172,10 @@ console.log(props)
 }
 
 .hero-block__header_type-other {
-  margin-bottom: 0;
+  margin-bottom: 31px;
+  @media screen and (max-width: 1599px) {
+    margin-bottom: 10px;
+  }
 }
 
 .hero-block_type-other {
@@ -256,6 +260,7 @@ console.log(props)
 
   @media screen and (max-width: 1350px) {
     font-size: clamp(24px, 2vw, 36px);
+    margin-left: 0;
   }
 }
 
@@ -264,5 +269,41 @@ console.log(props)
   z-index: 2;
   align-self: center;
   margin-left: 102px;
+
+  @media screen and (max-width: 1350px) {
+    margin-left: 0;
+  }
+}
+
+.hero-block__breadcrumbs {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin-left: 16px;
+}
+
+.hero-block__breadcrumb {
+  font-family: 'Europa', 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 100%;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.hero-block__breadcrumb-icon {
+  background-image: url("@/assets/icons/arrow.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 16px;
+  height: 16px;
+}
+
+.hero-block__breadcrumb:last-child .hero-block__breadcrumb-icon {
+  display: none;
 }
 </style>

@@ -37,3 +37,8 @@ export interface IMediumCardProps {
   date: string
   link: string
 }
+
+export interface IBreadcrumb {
+  name: string;
+  path: string;
+}
