@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import CardDestinations from '@/components/cards/CardDestinations.vue'
-import type { ICardDestination } from '@/types/types.ts'
-import { computed } from 'vue'
-import { useLanguageStore } from '@/stores/store.ts'
-import { cardsDestEn, cardsDestEs } from '@/data/dataDestinations.ts'
+import CardDestinations from '@/components/cards/CardDestinations.vue';
+import type { ICardDestination } from '@/types/types.ts';
+import { computed } from 'vue';
+import { useLanguageStore } from '@/stores/store.ts';
+import { cardsDestEn, cardsDestEs } from '@/data/dataDestinations.ts';
 
-const store = useLanguageStore()
-const currentLang = computed(() => store.getLang)
+const store = useLanguageStore();
+const currentLang = computed(() => store.getLang);
 
 const cards = computed<ICardDestination[]>(() => {
-  return currentLang.value === 'en' ? cardsDestEn : cardsDestEs
-})
+  return currentLang.value === 'en' ? cardsDestEn : cardsDestEs;
+});
 </script>
 
 <template>

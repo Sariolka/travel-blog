@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { ITabItem } from '@/types/types.ts'
+import type { ITabItem } from '@/types/types.ts';
 
-const props = defineProps<ITabItem>()
+const props = defineProps<ITabItem>();
 
 const emit = defineEmits<{
-  (e: 'update:status', status: string): void
-}>()
+  (e: 'update:status', status: string): void;
+}>();
 
 const handleSetActive = () => {
-  emit('update:status', 'active')
-}
+  emit('update:status', 'active');
+};
 </script>
 
 <template>

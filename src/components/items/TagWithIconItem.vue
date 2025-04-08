@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
-  icon: 'img' | 'video'
-}>()
+  icon: 'img' | 'video';
+}>();
 </script>
 
 <template>

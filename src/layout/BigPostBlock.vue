@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import TagItem from '@/components/items/TagItem.vue'
-import LinkItem from '@/components/items/LinkItem.vue'
-import { useLanguageStore } from '@/stores/store.ts'
-import { computed } from 'vue'
-const store = useLanguageStore()
-const currentLang = computed(() => store.getLang)
+import TagItem from '@/components/items/TagItem.vue';
+import LinkItem from '@/components/items/LinkItem.vue';
+import { useLanguageStore } from '@/stores/store.ts';
+import { computed } from 'vue';
+const store = useLanguageStore();
+const currentLang = computed(() => store.getLang);
 </script>
 
 <template>

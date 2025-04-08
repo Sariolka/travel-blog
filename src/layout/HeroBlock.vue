@@ -1,26 +1,24 @@
 <script setup lang="ts">
-import LinkItem from '@/components/items/LinkItem.vue'
-import { useLanguageStore } from '@/stores/store.ts'
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-import type { IBreadcrumb } from '@/types/types.ts'
+import LinkItem from '@/components/items/LinkItem.vue';
+import { useLanguageStore } from '@/stores/store.ts';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+import type { IBreadcrumb } from '@/types/types.ts';
 
 const props = defineProps<{
-  breadcrumbs?: IBreadcrumb[]
-}>()
+  breadcrumbs?: IBreadcrumb[];
+}>();
 
-const route = useRoute()
-const store = useLanguageStore()
-const currentLang = computed(() => store.getLang)
+const route = useRoute();
+const store = useLanguageStore();
+const currentLang = computed(() => store.getLang);
 const handleChangeLanguage = () => {
   if (store.language === 'en') {
-    store.setLanguage('es')
+    store.setLanguage('es');
   } else {
-    store.setLanguage('en')
+    store.setLanguage('en');
   }
-}
-
-console.log(props)
+};
 </script>
 
 <template>
@@ -63,8 +61,14 @@ console.log(props)
       </div>
     </header>
     <div v-if="breadcrumbs && breadcrumbs.length" class="hero-block__breadcrumbs">
-      <router-link v-for="(crumb, index) in breadcrumbs" :key="index" :to="crumb.path" class="hero-block__breadcrumb">
-                {{ crumb.name }} <div class="hero-block__breadcrumb-icon"></div>
+      <router-link
+        v-for="(crumb, index) in breadcrumbs"
+        :key="index"
+        :to="crumb.path"
+        class="hero-block__breadcrumb"
+      >
+        {{ crumb.name }}
+        <div class="hero-block__breadcrumb-icon"></div>
       </router-link>
     </div>
     <h1 class="hero-block__title" v-if="route.path === '/'">
@@ -293,7 +297,7 @@ console.log(props)
 }
 
 .hero-block__breadcrumb-icon {
-  background-image: url("@/assets/icons/arrow.svg");
+  background-image: url('@/assets/icons/arrow.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

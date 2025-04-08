@@ -1,20 +1,19 @@
 <script setup lang="ts">
-import BigCard from '@/components/cards/BigCard.vue'
-import { useLanguageStore } from '@/stores/store.ts'
-import { computed } from 'vue'
-import { cardsEn, cardsEs, statistic } from '@/data/dataBlog.ts'
-import type { IBigCardProps } from '@/types/types.ts'
-import StatisticItem from '@/components/items/StatisticItem.vue'
+import BigCard from '@/components/cards/BigCard.vue';
+import { useLanguageStore } from '@/stores/store.ts';
+import { computed } from 'vue';
+import { cardsEn, cardsEs, statistic } from '@/data/dataBlog.ts';
+import type { IBigCardProps } from '@/types/types.ts';
+import StatisticItem from '@/components/items/StatisticItem.vue';
 
-const store = useLanguageStore()
-const currentLang = computed(() => store.getLang)
+const store = useLanguageStore();
+const currentLang = computed(() => store.getLang);
 
 const cards = computed<IBigCardProps[]>(() => {
-  return currentLang.value === 'en' ? cardsEn : cardsEs
-})
+  return currentLang.value === 'en' ? cardsEn : cardsEs;
+});
 
-const data = Object.entries(statistic)
-console.log(data)
+const data = Object.entries(statistic);
 </script>
 
 <template>

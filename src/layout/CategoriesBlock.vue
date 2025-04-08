@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import TabItem from '@/components/items/TabItem.vue'
-import SmallCard from '@/components/cards/SmallCard.vue'
-import MediumCard from '@/components/cards/MediumCard.vue'
-import { useLanguageStore } from '@/stores/store.ts'
-import { computed } from 'vue'
-import type { ICard, IMediumCardProps, ITabItem } from '@/types/types.ts'
+import TabItem from '@/components/items/TabItem.vue';
+import SmallCard from '@/components/cards/SmallCard.vue';
+import MediumCard from '@/components/cards/MediumCard.vue';
+import { useLanguageStore } from '@/stores/store.ts';
+import { computed } from 'vue';
+import type { ICard, IMediumCardProps, ITabItem } from '@/types/types.ts';
 import {
   cardEn,
   cardEs,
@@ -14,13 +14,13 @@ import {
   cards2Es,
   tabsEn,
   tabsEs,
-} from '@/data/dataCategories.ts'
-const store = useLanguageStore()
-const currentLang = computed(() => store.getLang)
-const tabs = computed<ITabItem[]>(() => (currentLang.value === 'en' ? tabsEn : tabsEs))
-const cards2 = computed<ICard[]>(() => (currentLang.value === 'en' ? cards2En : cards2Es))
-const cards1 = computed<ICard[]>(() => (currentLang.value === 'en' ? cards1En : cards1Es))
-const card = computed<IMediumCardProps>(() => (currentLang.value === 'en' ? cardEn : cardEs))
+} from '@/data/dataCategories.ts';
+const store = useLanguageStore();
+const currentLang = computed(() => store.getLang);
+const tabs = computed<ITabItem[]>(() => (currentLang.value === 'en' ? tabsEn : tabsEs));
+const cards2 = computed<ICard[]>(() => (currentLang.value === 'en' ? cards2En : cards2Es));
+const cards1 = computed<ICard[]>(() => (currentLang.value === 'en' ? cards1En : cards1Es));
+const card = computed<IMediumCardProps>(() => (currentLang.value === 'en' ? cardEn : cardEs));
 </script>
 
 <template>

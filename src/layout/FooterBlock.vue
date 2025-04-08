@@ -2,7 +2,7 @@
 
 <template>
   <footer class="footer">
-<!--    <span class="footer__text">Designed & Developed by&ensp; XP DESIGN</span>-->
+    <!--    <span class="footer__text">Designed & Developed by&ensp; XP DESIGN</span>-->
   </footer>
 </template>
 

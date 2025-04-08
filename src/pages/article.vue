@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ArticlePage from '@/views/ArticlePage.vue'
+import ArticlePage from '@/views/ArticlePage.vue';
 </script>
 
 <template>
