@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { IMediumCardProps } from '@/types/types.ts'
-import { useLanguageStore } from '@/stores/store.ts'
-import { computed } from 'vue'
+import type { IMediumCardProps } from '@/types/types.ts';
+import { useLanguageStore } from '@/stores/store.ts';
+import { computed } from 'vue';
 
 const props = defineProps<{
-  card: IMediumCardProps
-}>()
+  card: IMediumCardProps;
+}>();
 
-const store = useLanguageStore()
-const currentLang = computed(() => store.getLang)
+const store = useLanguageStore();
+const currentLang = computed(() => store.getLang);
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { ICard } from '@/types/types.ts'
+import type { ICard } from '@/types/types.ts';
 
-const props = defineProps<ICard>()
+const props = defineProps<ICard>();
 </script>
 
 <template>

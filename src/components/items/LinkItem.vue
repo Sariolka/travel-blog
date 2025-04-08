@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { useLanguageStore } from '@/stores/store.ts'
-import { computed } from 'vue'
+import { useLanguageStore } from '@/stores/store.ts';
+import { computed } from 'vue';
 
 const props = defineProps<{
-  big?: boolean
-}>()
+  big?: boolean;
+}>();
 
-const store = useLanguageStore()
-const currentLang = computed(() => store.getLang)
+const store = useLanguageStore();
+const currentLang = computed(() => store.getLang);
 </script>
 
 <template>

@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { IBreadcrumb } from '@/types/types.ts'
-import HeroBlock from '@/layout/HeroBlock.vue'
-import TitleCardForHero from '@/components/cards/TitleCardForHero.vue'
-import StatisticIcon from '@/assets/icons/StatisticIcon.vue'
-import FacebookIcon from '@/assets/icons/FacebookIcon.vue'
-import TwitterIcon from '@/assets/icons/TwitterIcon.vue'
-import PinterestIcon from '@/assets/icons/PinterestIcon.vue'
-import { useLanguageStore } from '@/stores/store.ts'
-import ShareIcon from '@/assets/icons/ShareIcon.vue'
-import { translations } from '../data/dataArticle.ts'
-import FooterBlock from '@/layout/FooterBlock.vue'
+import { computed } from 'vue';
+import type { IBreadcrumb } from '@/types/types.ts';
+import HeroBlock from '@/layout/HeroBlock.vue';
+import TitleCardForHero from '@/components/cards/TitleCardForHero.vue';
+import StatisticIcon from '@/assets/icons/StatisticIcon.vue';
+import FacebookIcon from '@/assets/icons/FacebookIcon.vue';
+import TwitterIcon from '@/assets/icons/TwitterIcon.vue';
+import PinterestIcon from '@/assets/icons/PinterestIcon.vue';
+import { useLanguageStore } from '@/stores/store.ts';
+import ShareIcon from '@/assets/icons/ShareIcon.vue';
+import { translations } from '../data/dataArticle.ts';
+import FooterBlock from '@/layout/FooterBlock.vue';
 
-const store = useLanguageStore()
+const store = useLanguageStore();
 type Language = 'en' | 'es';
 const currentLang = computed<Language>(() => store.getLang as Language);
 
@@ -60,7 +60,9 @@ const breadcrumbs = computed<IBreadcrumb[]>(() => {
         </li>
         <li class="page__article-info page__article-info_type-medium-margin">
           <ShareIcon class="page__article-icon" />
-          <span class="page__article-span">{{ currentLang === 'en' ? 'shares' : 'compartidos' }}</span>
+          <span class="page__article-span">{{
+            currentLang === 'en' ? 'shares' : 'compartidos'
+          }}</span>
           <span class="page__article-span">996K</span>
         </li>
         <li class="page__article-info page__article-info_type-small-margin">

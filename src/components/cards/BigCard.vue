@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import TagItem from '@/components/items/TagItem.vue'
-import TagWithIconItem from '@/components/items/TagWithIconItem.vue'
-import type { IBigCardProps } from '@/types/types.ts'
-import { useLanguageStore } from '@/stores/store.ts'
-import { computed } from 'vue'
+import TagItem from '@/components/items/TagItem.vue';
+import TagWithIconItem from '@/components/items/TagWithIconItem.vue';
+import type { IBigCardProps } from '@/types/types.ts';
+import { useLanguageStore } from '@/stores/store.ts';
+import { computed } from 'vue';
 
 const props = defineProps<{
-  card: IBigCardProps
-}>()
+  card: IBigCardProps;
+}>();
 
-const store = useLanguageStore()
-const currentLang = computed(() => store.getLang)
+const store = useLanguageStore();
+const currentLang = computed(() => store.getLang);
 </script>
 
 <template>

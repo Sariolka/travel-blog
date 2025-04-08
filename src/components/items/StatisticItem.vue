@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from 'vue';
 
 const props = defineProps<{
-  type: string
-  count: string
-}>()
+  type: string;
+  count: string;
+}>();
 
 // может, это ссылки?..
 
 const classes = computed(() => {
-  const prefix = 'container__img'
+  const prefix = 'container__img';
   return [
     prefix,
     {
@@ -18,8 +18,8 @@ const classes = computed(() => {
       [`${prefix}_type-t`]: props.type === 't',
       [`${prefix}_type-y`]: props.type === 'y',
     },
-  ]
-})
+  ];
+});
 </script>
 
 <template>

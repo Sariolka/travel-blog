@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { ICardDestination } from '@/types/types.ts'
+import type { ICardDestination } from '@/types/types.ts';
 
 const props = defineProps<{
-  card: ICardDestination
-}>()
+  card: ICardDestination;
+}>();
 </script>
 
 <template>

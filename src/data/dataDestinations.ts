@@ -1,9 +1,9 @@
-import p1 from '@/assets/images/1.png'
-import p2 from '@/assets/images/2.png'
-import p3 from '@/assets/images/3.png'
-import p4 from '@/assets/images/4.png'
-import p5 from '@/assets/images/5.png'
-import type { ICardDestination } from '@/types/types.ts'
+import p1 from '@/assets/images/1.png';
+import p2 from '@/assets/images/2.png';
+import p3 from '@/assets/images/3.png';
+import p4 from '@/assets/images/4.png';
+import p5 from '@/assets/images/5.png';
+import type { ICardDestination } from '@/types/types.ts';
 
 export const cardsDestEn: ICardDestination[] = [
   {
@@ -31,7 +31,7 @@ export const cardsDestEn: ICardDestination[] = [
     image: p5,
     link: '/article',
   },
-]
+];
 
 export const cardsDestEs: ICardDestination[] = [
   {
@@ -59,4 +59,4 @@ export const cardsDestEs: ICardDestination[] = [
     image: p5,
     link: '/article',
   },
-]
+];

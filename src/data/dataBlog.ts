@@ -1,8 +1,8 @@
-import wave from '@/assets/images/Rectangle 1317(1).webp'
-import avatar from '@/assets/images/Ellipse 162(1).png'
-import wave2 from '@/assets/images/Rectangle 1317.webp'
-import wave3 from '@/assets/images/Rectangle 1317(2).webp'
-import type { IBigCardProps } from '@/types/types.ts'
+import wave from '@/assets/images/Rectangle 1317(1).webp';
+import avatar from '@/assets/images/Ellipse 162(1).png';
+import wave2 from '@/assets/images/Rectangle 1317.webp';
+import wave3 from '@/assets/images/Rectangle 1317(2).webp';
+import type { IBigCardProps } from '@/types/types.ts';
 
 export const cardsEn: IBigCardProps[] = [
   {
@@ -41,7 +41,7 @@ export const cardsEn: IBigCardProps[] = [
     link: '/',
     tags: ['Aenean Eleifend', 'Aliquam'],
   },
-]
+];
 
 export const cardsEs: IBigCardProps[] = [
   {
@@ -80,11 +80,11 @@ export const cardsEs: IBigCardProps[] = [
     link: '/',
     tags: ['Aenean Eleifend', 'Aliquam'],
   },
-]
+];
 
 export const statistic: Record<'f' | 'i' | 't' | 'y', string> = {
   f: '3.7',
   i: '2.4',
   t: '3.7',
   y: '2.4',
-}
+};
