@@ -97,11 +97,10 @@ console.log(props)
   background-size: cover;
   background-repeat: no-repeat;
   aspect-ratio: 1997/900;
-  padding: 43px 188px 0 135px;
+  padding: 43px 188px 20px 135px;
   @media screen and (max-width: 1350px) {
     padding-left: 50px;
     padding-right: 50px;
-    padding-bottom: 20px;
   }
 }
 
