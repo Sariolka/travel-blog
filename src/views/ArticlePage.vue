@@ -2,7 +2,6 @@
 import { computed } from 'vue'
 import type { IBreadcrumb } from '@/types/types.ts'
 import HeroBlock from '@/layout/HeroBlock.vue'
-import FooterBlock from '@/layout/FooterBlock.vue'
 import TitleCardForHero from '@/components/cards/TitleCardForHero.vue'
 import StatisticIcon from '@/assets/icons/StatisticIcon.vue'
 import FacebookIcon from '@/assets/icons/FacebookIcon.vue'
@@ -10,15 +9,26 @@ import TwitterIcon from '@/assets/icons/TwitterIcon.vue'
 import PinterestIcon from '@/assets/icons/PinterestIcon.vue'
 import { useLanguageStore } from '@/stores/store.ts'
 import ShareIcon from '@/assets/icons/ShareIcon.vue'
+import { translations } from '../data/dataArticle.ts'
+import FooterBlock from '@/layout/FooterBlock.vue'
 
 const store = useLanguageStore()
-const currentLang = computed(() => store.getLang)
+type Language = 'en' | 'es';
+const currentLang = computed<Language>(() => store.getLang as Language);
 
-const breadcrumbs: IBreadcrumb[] = [
-  { name: currentLang.value === 'en' ? 'Home' : 'Inicio', path: '/' },
-  { name: currentLang.value === 'en' ? 'Growth' : 'Crecimiento', path: '/' },
-  { name: currentLang.value === 'en' ? '5 Efficient Rules How to Organize Your Working Place' : '5 Reglas Eficientes para Organizar Tu Espacio de Trabajo', path: '/article' },
-];
+const breadcrumbs = computed<IBreadcrumb[]>(() => {
+  return [
+    { name: currentLang.value === 'en' ? 'Home' : 'Inicio', path: '/' },
+    { name: currentLang.value === 'en' ? 'Growth' : 'Crecimiento', path: '/' },
+    {
+      name:
+        currentLang.value === 'en'
+          ? '5 Efficient Rules How to Organize Your Working Place'
+          : '5 Reglas Eficientes para Organizar Tu Espacio de Trabajo',
+      path: '/article',
+    },
+  ];
+});
 </script>
 
 <template>
@@ -67,70 +77,41 @@ const breadcrumbs: IBreadcrumb[] = [
       </ul>
       <article class="page__article-content">
         <p class="page__article-description">
-          Structured gripped tape invisible moulded cups for sauppor firm hold strong powermesh
-          front liner sport detail. Warmth comfort hangs loosely from the body large pocket
-          at&nbsp;the front full button detail cotton blend cute functional. Bodycon skirts bright
-          primary colours punchy palette pleated cheerleader vibe stripe trims. Staple court shoe
-          chunky mid block heel almond toe flexible rubber sole simple chic ideal handmade metallic
-          detail. Contemporary pure silk pocket square sophistication luxurious coral print pocket
-          pattern&nbsp;On trend inspired shades.
+          {{ translations[currentLang].description1 }}
         </p>
         <p class="page__article-description page__article-description_type-margin">
-          Striking pewter studded epaulettes silver zips inner drawstring waist channel urban edge
-          single-breasted jacket. Engraved attention to detail elegant with neutral colours cheme
-          quartz leather strap fastens with a&nbsp;pin a&nbsp;buckle clasp. Workwear bow detailing
-          a&nbsp;slingback buckle strap stiletto heel timeless go-to shoe sophistication slipper
-          shoe. Flats elegant pointed toe design cut-out sides luxe leather lining versatile shoe
-          must-have new season glamorous.
+          {{ translations[currentLang].description2 }}
         </p>
         <div class="page__blockquote-container">
           <div class="page__blockquote-img"></div>
           <blockquote class="page__blockquote">
-            Knicker lining concealed back zip fasten swing style high waisted double layer full
-            pattern floral.
+            {{ translations[currentLang].quote }}
           </blockquote>
         </div>
 
         <p class="page__article-description">
-          Foam padding in&nbsp;the insoles leather finest quality staple flat slip-on design pointed
-          toe off-duty shoe. Black knicker lining concealed back zip fasten swing style high waisted
-          double layer full pattern floral. Polished finish elegant court shoe work duty stretchy
-          slingback strap mid kitten heel this ladylike design
+          {{ translations[currentLang].description3 }}
         </p>
         <p class="page__article-description page__article-description_type-margin">
-          Eget aenean tellus venenatis. Donec odio tempus. Felis arcu pretium metus nullam quam
-          aenean sociis quis sem neque vici libero. Venenatis nullam fringilla pretium magnis
-          aliquam nunc vulputate integer augue ultricies cras. Eget viverra feugiat cras&nbsp;ut.
-          Sit natoque montes tempus ligula eget vitae pede rhoncus maecenas consectetuer commodo
-          condimentum aenean.
+          {{ translations[currentLang].description4 }}
         </p>
-        <h4 class="page__article-strong">Eu ridiculus fringilla aenean</h4>
+        <h4 class="page__article-strong">{{ translations[currentLang].h4 }}</h4>
         <p class="page__article-description">
-          Sociis consequat adipiscing sit curabitur donec sem luctus cras natoque vulputate dolor
-          eget dapibus. Nec vitae eros ullamcorper laoreet dapibus mus ac&nbsp;ante viverra.
-          A&nbsp;aenean sit augue curabitur et&nbsp;parturient nisi sed enim. Nulla nec quis sit
-          quisque sem commodo ultricies neque. Lorem eget venenatis dui ante luctus ultricies tellus
-          montes. Quis in&nbsp;sapien tempus.
+          {{ translations[currentLang].description5 }}
         </p>
         <ul class="page__article-list">
-          <li class="page__article-list-item">Crisp fresh iconic elegant timeless clean perfume</li>
-          <li class="page__article-list-item">Neck straight sharp silhouette and dart detail</li>
+          <li class="page__article-list-item">{{ translations[currentLang].listItem1 }}</li>
+          <li class="page__article-list-item">{{ translations[currentLang].listItem2 }}</li>
           <li class="page__article-list-item">
-            Machine wash cold slim fit premium stretch selvedge denim comfortable low waist
+            {{ translations[currentLang].listItem3 }}
           </li>
         </ul>
         <p class="page__article-description">
-          See-through delicate embroidered organza blue lining luxury acetate-mix stretch pleat
-          detailing. Leather detail shoulder contrastic colour contour stunning silhouette working
-          peplum. Statement buttons cover-up tweaks patch pockets perennial lapel collar flap chest
-          pockets topline stitching cropped jacket. Effortless comfortable full leather lining
-          eye-catching unique detail to&nbsp;the toe low &lsquo;cut-away&rsquo; sides clean and
-          sleek. Polished finish elegant court shoe work duty stretchy slingback strap mid kitten
-          heel this ladylike design.
+          {{ translations[currentLang].description6 }}
         </p>
       </article>
     </main>
-<!--    <FooterBlock />-->
+    <FooterBlock />
   </section>
 </template>
 

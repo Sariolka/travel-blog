@@ -3,6 +3,11 @@ import StatisticIcon from '@/assets/icons/StatisticIcon.vue'
 import FacebookIcon from '@/assets/icons/FacebookIcon.vue'
 import PinterestIcon from '@/assets/icons/PinterestIcon.vue'
 import TwitterIcon from '@/assets/icons/TwitterIcon.vue'
+import { useLanguageStore } from '@/stores/store.ts'
+import { computed } from 'vue'
+
+const store = useLanguageStore()
+const currentLang = computed(() => store.getLang)
 
 const props = defineProps<{
   title: string
@@ -19,23 +24,23 @@ const props = defineProps<{
     <h1 class="title-card__title">{{ title }}</h1>
     <p class="title-card__description">{{ description }}</p>
     <div class="title-card__article-info">
-      <p class="title-card__author">by {{ author }}</p>
+      <p class="title-card__author">{{currentLang === 'en' ? 'by' : 'por'}} {{ author }}</p>
       <hr class="title-card__line" />
       <div class="title-card__info">
         <div class="title-card__icon title-card__time-icon"></div>
-        <p class="title-card__span">{{ time }} read</p>
+        <p class="title-card__span">{{ time }} {{ currentLang === 'en' ? 'read' : 'leer' }}</p>
       </div>
       <hr class="title-card__line title-card__line_type-xs" />
       <div class="title-card__info">
         <StatisticIcon class="title-card__icon" />
-        <p class="title-card__span title-card__span_type-l">{{ views }} views</p>
+        <p class="title-card__span title-card__span_type-l">{{ views }} {{ currentLang === 'en' ? 'views' : 'vistas' }}</p>
       </div>
       <hr class="title-card__line title-card__line_type-xs" />
       <div class="title-card__info">
         <FacebookIcon class="title-card__icon title-card__icon_type-f" />
         <TwitterIcon class="title-card__icon title-card__icon_type-f" />
         <PinterestIcon class="title-card__icon title-card__icon_type-f" />
-        <p class="title-card__span title-card__span_type-l">{{ shares }} shares</p>
+        <p class="title-card__span title-card__span_type-l">{{ shares }} {{ currentLang === 'en' ? 'shares' : 'compartidos' }}</p>
       </div>
     </div>
   </div>
