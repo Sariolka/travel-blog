@@ -52,6 +52,11 @@ const props = defineProps<{
   margin-top: auto;
   margin-bottom: 60px;
   margin-left: 130px;
+  @media screen and (max-width: 1599px) {
+    max-width: 850px;
+    margin-bottom: 20px;
+    margin-left: 0;
+  }
 }
 
 .title-card__title {
@@ -62,6 +67,10 @@ const props = defineProps<{
   letter-spacing: 0.4px;
   text-transform: uppercase;
   margin-bottom: 15px;
+
+  @media screen and (max-width: 1599px) {
+    font-size: clamp(24px, 4vw, 52px);
+  }
 }
 
 .title-card__description {
@@ -72,6 +81,9 @@ const props = defineProps<{
   letter-spacing: -1.2px;
   margin-bottom: 21px;
   max-width: 990px;
+  @media screen and (max-width: 1599px) {
+    font-size: clamp(24px, 2vw, 52px);
+  }
 }
 
 .title-card__author {

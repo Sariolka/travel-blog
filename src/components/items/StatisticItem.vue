@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 
 const props = defineProps<{
-  type: 'f' | 'i' | 't' | 'y'
+  type: string
   count: string
 }>()
 

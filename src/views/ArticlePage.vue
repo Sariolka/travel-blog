@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import type { IBreadcrumb } from '@/types/types.ts'
 import HeroBlock from '@/layout/HeroBlock.vue'
 import FooterBlock from '@/layout/FooterBlock.vue'
 import TitleCardForHero from '@/components/cards/TitleCardForHero.vue'
@@ -7,16 +9,21 @@ import FacebookIcon from '@/assets/icons/FacebookIcon.vue'
 import TwitterIcon from '@/assets/icons/TwitterIcon.vue'
 import PinterestIcon from '@/assets/icons/PinterestIcon.vue'
 import { useLanguageStore } from '@/stores/store.ts'
-import { computed } from 'vue'
 import ShareIcon from '@/assets/icons/ShareIcon.vue'
 
 const store = useLanguageStore()
 const currentLang = computed(() => store.getLang)
+
+const breadcrumbs: IBreadcrumb[] = [
+  { name: currentLang.value === 'en' ? 'Home' : 'Inicio', path: '/' },
+  { name: currentLang.value === 'en' ? 'Growth' : 'Crecimiento', path: '/' },
+  { name: currentLang.value === 'en' ? '5 Efficient Rules How to Organize Your Working Place' : '5 Reglas Eficientes para Organizar Tu Espacio de Trabajo', path: '/article' },
+];
 </script>
 
 <template>
   <section class="page">
-    <HeroBlock class="page__article-img">
+    <HeroBlock class="page__article-img" :breadcrumbs="breadcrumbs">
       <TitleCardForHero
         :title="
           currentLang === 'en'
@@ -38,12 +45,12 @@ const currentLang = computed(() => store.getLang)
       <ul class="page__article-socials">
         <li class="page__article-info">
           <StatisticIcon class="page__article-icon" />
-          <span class="page__article-span">views</span>
+          <span class="page__article-span">{{ currentLang === 'en' ? 'views' : 'vistas' }}</span>
           <span class="page__article-span">1.6K</span>
         </li>
         <li class="page__article-info page__article-info_type-medium-margin">
           <ShareIcon class="page__article-icon" />
-          <span class="page__article-span">shares</span>
+          <span class="page__article-span">{{ currentLang === 'en' ? 'shares' : 'compartidos' }}</span>
           <span class="page__article-span">996K</span>
         </li>
         <li class="page__article-info page__article-info_type-small-margin">
@@ -123,7 +130,7 @@ const currentLang = computed(() => store.getLang)
         </p>
       </article>
     </main>
-    <FooterBlock />
+<!--    <FooterBlock />-->
   </section>
 </template>
 
@@ -132,6 +139,8 @@ const currentLang = computed(() => store.getLang)
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .page__article-img {
@@ -216,9 +225,6 @@ const currentLang = computed(() => store.getLang)
   font-weight: 400;
   line-height: 22px;
   margin-bottom: 58px;
-}
-
-.page__article-span {
 }
 
 .page__article-icon {
